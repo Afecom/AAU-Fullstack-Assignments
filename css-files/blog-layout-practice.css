@@ -1,0 +1,230 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: rgb(250, 250, 250);
+}
+
+.header-container{
+    width: 80%;
+    margin: auto;
+}
+
+.header-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+}
+
+.title{
+    font-size: 50px;
+    color: rgb(42, 62, 80);
+    font-weight: 300px;
+}
+
+.title-description{
+    font-size: 20px;
+    color: rgb(127, 140, 141);
+    margin-top: -50px;
+    font-style: italic;
+}
+
+.content-container{
+    width: 80%;
+    display: flex;
+    gap: 0.5rem;
+    background-color: rgb(250, 250, 250);
+    margin: auto;
+    margin-top: 2.5rem;
+    position: relative;
+}
+
+.main{
+    width: 20%;
+    position: relative;
+}
+
+.featured{
+    width: 85%;
+    background-color: white;
+    border-radius: 12px;
+    padding-bottom: 30px;
+    margin-bottom: 3rem;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.featured img{
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.description-list ul{
+    display: flex;
+    color: rgb(117, 129, 130);
+    gap: 40px;
+    padding-left: 6rem;
+}
+
+.description-list ul :nth-child(1) {
+    list-style-image: url(../Assets/avatar-img.jpg);
+}
+
+.text-content{
+    margin: 0px 20px;
+}
+
+.text-content p{
+    margin-bottom: 40px;
+}
+
+.more-link{
+    color: rgb(38, 128, 183);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.more-link:hover{
+    color: rgb(57, 114, 177);
+}
+
+.text-content a{
+    margin-bottom: 20px;
+}
+
+.text-content h1{
+    font-size: 2rem;
+}
+
+.other-posts{
+    width: 80%;
+    background-color: white;
+    border-radius: 12px;
+    padding: 25px 20px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.other-posts:hover{
+    transform: translateY(-3px);
+}
+
+.side-elements{
+    width: 50%;
+}
+
+.img-tag{
+    padding: 1px 15px;
+    font-size: .8rem;
+    font-weight: bold;
+    border-radius: 100px;
+    background-color: rgb(232, 76, 61);
+    color: white;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+}
+
+.popular-posts{
+    background-color: white;
+    padding: 1rem 1rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.actual-posts ul{
+    list-style: none;
+    padding: 0;
+}
+
+.actual-posts ul :nth-child(2) {
+    font-size: small;
+    color: rgb(61, 61, 61);
+}
+
+.aside-title{
+    color: rgb(44, 62, 80);
+    margin-bottom: 0;
+}
+
+.heading-line{
+    height: 2px;
+    background-color: rgb(49, 152, 217);
+    width: 100%;
+    padding: 0;
+    border: none;
+}
+
+.actual-posts a{
+    text-decoration: none;
+    color: black;
+    transition: color 0.3s ease;
+}
+
+.actual-posts a:hover{
+    color: rgb(49, 152, 217)
+}
+
+.tags{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 20px;
+}
+
+.tag-elements{
+    background: #ecf0f1;
+    font-size: 0.8rem;
+    text-decoration: none;
+    color: #2c3e50;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+.tag-elements:hover{
+    background: #3498db;
+    color: white;
+}
+
+.newsletter{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.newsletter p{
+    text-align: center;
+}
+
+.newsletter input{
+    width: 80%;
+    padding: 0.8rem;
+    border: 2px solid #ecf0f1;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.newsletter button{
+    width: 85%;
+    padding: 0.8rem;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.newsletter button:hover{
+    background: #2980b9;
+}
