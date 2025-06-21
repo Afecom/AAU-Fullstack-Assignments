@@ -105,7 +105,8 @@ header h1::after{
     top: 12px;
     right: 10px;
     border: none;
-    border-radius: 15%;
+    padding: 5px 10px;
+    border-radius: 1rem;
     color: white;
     background-color: rgb(242, 93, 49);
 }
