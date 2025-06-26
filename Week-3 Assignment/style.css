@@ -1,0 +1,254 @@
+:root{
+    --button-color: rgb(23, 23, 23);
+    --button-hover-color: rgb(46, 46, 46);
+    --h2-font-color: rgb(17, 24, 39);
+    --label-color: rgb(10, 10, 10);
+    --body-color: rgb(249, 250, 251);
+    --header-p-color: rgb(75, 85, 99);
+    --header-h1-color: rgb(17, 24, 39);
+    --title-p-color: rgb(115, 115, 115);
+}
+
+@layer base{
+    body{
+        margin: 0;
+        padding: 0;
+        background-color: var(--body-color);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    form {
+        width: 92dvw;
+    }
+
+}
+
+@layer layout{
+
+    header{
+        text-align: center;
+        margin-top: 1.8rem;
+
+        >h1{
+            font-size: 1.88rem;
+        }
+
+        > p{
+            font-size: 1rem;
+        }
+    }
+
+    main{
+        max-width: 92dvw;
+        margin: 0 auto;
+        margin-bottom: 50px;
+        max-width: 1200px;
+        margin-top: 0px;
+    }
+
+    .container{
+        display: grid;
+        gap: 10px;
+        width: 100%;
+        max-width: 92dvw;
+        margin: auto;
+        background-color: white;
+        padding: 20px;
+        box-sizing: border-box;
+        margin-top: 25px;
+    }
+
+    .title{
+        >h2{
+            margin: 0;
+        }
+
+        >p{
+            margin-top: 5px;
+            color: var(--title-p-color);
+            font-size: 14px;
+        }
+    }
+
+    input:not([type="checkbox"])
+    {
+        margin: 15px 5px;
+        margin-bottom: 12px; 
+        max-width: 100%;
+        width: 100%;
+        border: 1px solid lightgrey;
+        border-radius: 5px;
+        padding: 13px;
+        box-sizing: border-box;
+        font-size: 1rem;
+    }
+
+    input:focus{
+        outline-color: black;
+
+    }
+
+    input[type="checkbox"]{
+        accent-color: black;
+    }
+
+    textarea{
+        margin: 15px 5px;
+        width: 90%;
+        height: 70px;
+        border: 1px solid lightgray;
+        border-radius: 5px;
+        padding: 13px;
+    }
+
+    textarea:focus{
+        outline-color: black;
+    }
+
+    select{
+        width: 100%;
+        max-width: 100%;
+        font-size: 1rem;
+        height: 35px;
+        border: 1px solid lightgrey;
+        border-radius: 5px;
+        margin-top: 10px;
+        appearance: none;
+        padding-left: 15px;
+    }
+
+    select:focus{
+        outline-color: black;
+    }
+
+    .preferences{
+        > label{
+            font-size: medium;
+        }
+        
+        display: grid;
+        gap: 10px;
+    }
+
+    .prefs{
+        display: flex;
+        gap: 10px;
+    }
+
+    button{
+        margin-top: 15px;
+    }
+    button:hover{
+        cursor: pointer;
+    }
+
+    .error input, .error select{
+        border: 1px solid red;
+    }
+
+    #password-error{
+        font-size: 14px;
+        margin-top: -10px;
+    }
+
+    .password, .confirm-password{
+        position: relative;
+    }
+
+    i{
+        position: absolute;
+        right: 15px;
+        top: 51px;
+        cursor: pointer;
+    }
+
+}
+
+@layer utilities{
+    .container{
+        border: 1px solid lightgrey;
+        border-radius: 12px;
+    }
+
+    #create-account-button{
+        background-color: var(--button-color);
+        color: white;
+        padding: 12px 20px;
+        border-radius: 5px;
+    }
+
+    small{
+        display: inline-block;
+        color: red;
+        margin-bottom: 15px;
+        margin-left: 15px;
+        word-wrap: break-word;
+        max-width: 80%;
+    }
+
+    .select-error{
+        display: inline-block;
+        color: red;
+        margin-bottom: 15px;
+        margin-left: 15px;
+        margin-top: 20px;
+    }
+
+    #password-error{
+        color: red;
+    }
+}
+
+@media (min-width: 768px){
+
+    .container {
+        max-width: 700px;
+        width: 100%;
+    }
+
+    input:not([type="checkbox"])
+    {
+        margin: 15px 5px;
+        width: 100%;
+        border: 1px solid lightgray;
+        border-radius: 5px;
+        padding: 10px;
+    }
+
+    textarea{
+        width: 96%;
+    }
+
+    select{
+        margin-top: 19px;
+    }
+
+    .flex-containers{
+        display: flex;
+        width: 100%;
+        box-sizing: border-box;
+        gap: 20px;
+
+        > .first-name, .last-name, .phone-number, .gender{
+            width: 50%;
+        }
+    }
+
+    .address-details{
+        display: flex;
+        gap: 25px;
+    }
+
+    .error input, .error select{
+        border: 1px solid red;
+    }
+
+    button:hover{
+        background-color: var(--button-hover-color);
+    }
+}
