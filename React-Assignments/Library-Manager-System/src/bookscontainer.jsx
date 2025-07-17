@@ -56,7 +56,7 @@ function BooksContainer(props){
                     </>
                 )}
             </div>
-            <div className="flex justify-between gap-8 w-82 max-w-82">
+            <div className="flex justify-between gap-8 w-82 m-auto max-w-82">
                 <div>
                     <h3 className="font-bold text-xl text-wrap">{props.title}</h3>
                     <p className="text-md mb-2">by {props.author}</p>
@@ -72,9 +72,9 @@ function BooksContainer(props){
             <p className="text-md mt-3">Published {props.publishedYear}</p>
             <p className="text-md mt-3">Available Copies: {props.availableCopies}</p>
             <div className="flex justify-end self-end mt-4 gap-4">
-                <div className="p-2 border-1 border-gray-300 rounded-md hover:cursor-pointer hover:bg-gray-100" onClick={props.onSee}><FontAwesomeIcon icon={faEye} /></div>
-                <div className="p-2 border-1 border-gray-300 rounded-md hover:cursor-pointer hover:bg-gray-100" onClick={props.onEdit}><FontAwesomeIcon icon={faPencilSquare} /></div>
-                <div className="p-2 border-1 border-gray-300 rounded-md hover:cursor-pointer hover:bg-gray-100" onClick={props.onRemove}><FontAwesomeIcon icon={faTrash} /></div>
+                <div className="px-3 py-2 border-1 border-gray-300 rounded-md hover:cursor-pointer hover:bg-gray-100" onClick={props.onSee}><FontAwesomeIcon icon={faEye} /></div>
+                <div className="px-3 py-2 border-1 border-gray-300 rounded-md hover:cursor-pointer hover:bg-gray-100" onClick={props.onEdit}><FontAwesomeIcon icon={faPencilSquare} /></div>
+                <div className="px-3 py-2 border-1 border-gray-300 rounded-md hover:cursor-pointer hover:bg-gray-100" onClick={props.onRemove}><FontAwesomeIcon icon={faTrash} /></div>
             </div>
         </div>
     )

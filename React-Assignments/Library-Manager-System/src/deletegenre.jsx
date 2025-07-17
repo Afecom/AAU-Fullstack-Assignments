@@ -14,27 +14,27 @@ axiosInstance.interceptors.request.use((config) =>{
   return Promise.reject(error)
 })
 
-function DeleteBook(props){
+function DeleteGenre(props){
 
     async function clickHandler(){
-        const bookId = props.id
+        const genreId = props.id
 
         try{
-            const response = await axiosInstance.delete(`/books/${bookId}`)
+            const response = await axiosInstance.delete(`/genres/${genreId}`)
             if (response.request.status === 200){
-                window.location.href = "/books"
+                window.location.href = "/genres"
             }
         }
         catch(error){
-            alert("Couldn't perform the requested action")
-            console.error("Couldn't delete the book", error)
+          alert("Couldn't perform the requested action")
+          console.error("Couldn't delete the genre", error)
         }
     }
 
     return(
     <div className="p-4 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 z-50 bg-white shadow-3xl shadow-gray-300 rounded-xl">
-        <h1 className='text-center text-2xl font-bold'>Delete Book</h1>
-        <p className="text-center mt-2">Are you sure you want to delete "{props.title}"? This
+        <h1 className='text-center text-2xl font-bold'>Delete Genre</h1>
+        <p className="text-center mt-2">Are you sure you want to delete "{props.name}"? This
             action cannot be undone
         </p>
         <button type="button" className="w-full bg-red-600 text-white rounded-md hover:cursor-pointer hover:bg-red-400 py-2 my-4" onClick={clickHandler}>Delete</button>
@@ -42,4 +42,4 @@ function DeleteBook(props){
     </div>
     ) 
 }
-export default DeleteBook
+export default DeleteGenre

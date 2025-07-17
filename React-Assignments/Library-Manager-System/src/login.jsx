@@ -36,11 +36,16 @@ function Login(){
                 email: `${credentials.username}`,
                 password: `${credentials.password}`
             })
-            localStorage.setItem('token', response.data.access_token)
-            window.location.href = "/dashboard";
-            setIsLoggedIn(true)
+
+             if (response.request.status === 201){
+                localStorage.setItem('token', response.data.access_token)
+                window.location.href = "/dashboard";
+                setIsLoggedIn(true)
+            }
+            console.log(response.request.status)
         }
         catch (error){
+            alert("Invalid Credentials")
             console.error("there was and error logging the user in", error)
         }
     }
@@ -54,11 +59,11 @@ function Login(){
                     <p className='text-center text-xl mb-6 text-gray-500'>Sign in to your account to continue</p>
                     <div className='mb-6'>
                         <label htmlFor="usernameField" className='text-lg font-bold'>Username</label><br />
-                        <input type="text" name="username" id="usernameField" placeholder='Enter your username' className='border-gray-300 border-1 rounded-md py-2 px-2 w-full mt-2 focus:outline-black focus:outline-2' /><br />
+                        <input type="text" name="username" id="usernameField" placeholder='Enter your username' className='border-gray-300 border-1 rounded-md py-2 px-2 w-full mt-2 focus:outline-black focus:outline-2' required /><br />
                     </div>
                     <div className='mb-6'>
                         <label htmlFor="passwordField" className='text-lg font-bold'>Password</label><br />
-                        <input type="password" name="password" id="passwordField" placeholder='Enter your password'className='border-gray-300 border-1 rounded-md py-2 px-2 w-full mt-2 focus:outline-black focus:outline-2' /><br />
+                        <input type="password" name="password" id="passwordField" placeholder='Enter your password'className='border-gray-300 border-1 rounded-md py-2 px-2 w-full mt-2 focus:outline-black focus:outline-2' required /><br />
                     </div>
                     <button type="submit" className='bg-black rounded-md text-white text-xl w-full py-2 mb-2 hover:cursor-pointer hover:bg-gray-800'>Sign in</button>
                 </form>

@@ -42,11 +42,9 @@ function EditBook(props){
             if (response.request.status === 200){
                 window.location.href = "/books"
             }
-            else{
-                alert("Couldn't perform the requested action")
-            }
         }
         catch(error){
+            alert("Couldn't perform the requested action")
             console.error("Couldn't update the book", error)
         }
     }
@@ -59,23 +57,23 @@ function EditBook(props){
             <form onSubmit={submitHandler}>
                 <div className="mt-4">
                     <label htmlFor="titleInput">Title</label><br />
-                    <input type="text" id="titleInput" name="title" className="p-2 focus:outline-2 focus:outline-black w-full border-1 border-gray-300 mt-3 rounded-md" defaultValue={props.title}/>
+                    <input required type="text" id="titleInput" name="title" className="p-2 focus:outline-2 focus:outline-black w-full border-1 border-gray-300 mt-3 rounded-md" defaultValue={props.title}/>
                 </div>
                 <div className="mt-4">
                     <label htmlFor="authorInput">Author</label><br />
-                    <input type="text" id="authorInput" name="author" className="p-2 focus:outline-2 focus:outline-black w-full border-1 border-gray-300 mt-3 rounded-md" defaultValue={props.author}/>
+                    <input required type="text" id="authorInput" name="author" className="p-2 focus:outline-2 focus:outline-black w-full border-1 border-gray-300 mt-3 rounded-md" defaultValue={props.author}/>
                 </div>
                 <div className="mt-4">
                     <label htmlFor="publishedYearInput">Published Year</label><br />
-                    <input type="text" id="publishedYearInput" name="publishedYear" className="p-2 focus:outline-2 focus:outline-black w-full border-1 border-gray-300 mt-3 rounded-md" defaultValue={props.publishedYear}/>
+                    <input required type="text" id="publishedYearInput" name="publishedYear" className="p-2 focus:outline-2 focus:outline-black w-full border-1 border-gray-300 mt-3 rounded-md" defaultValue={props.publishedYear}/>
                 </div>
                 <div className="mt-4">
                     <label htmlFor="availableCopiesInput">Available Copies</label><br />
-                    <input type="text" id="availableCopiesInput" name="availableCopies" className="p-2 focus:outline-2 focus:outline-black w-full border-1 border-gray-300 mt-3 rounded-md" defaultValue={props.availableCopies}/>
+                    <input required type="text" id="availableCopiesInput" name="availableCopies" className="p-2 focus:outline-2 focus:outline-black w-full border-1 border-gray-300 mt-3 rounded-md" defaultValue={props.availableCopies}/>
                 </div>
                 <div className="mt-4">
                     <label htmlFor="genreSelect">Genre</label><br />
-                    <select name="genre" id="genreSelect" className="p-2  w-full border-1 border-gray-300 mt-3 rounded-md" defaultValue={props.genre}>
+                    <select required name="genre" id="genreSelect" className="p-2  w-full border-1 border-gray-300 mt-3 rounded-md" defaultValue={props.genre}>
                         {genres.map((genre, index) => {
                             return (
                                 <option value={genre.id} key={genre.id} >{genre.name}</option>

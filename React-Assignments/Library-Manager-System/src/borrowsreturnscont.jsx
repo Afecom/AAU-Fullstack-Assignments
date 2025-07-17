@@ -1,7 +1,11 @@
 import { faBookOpen, faCalendar, faUser } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { useContext } from "react"
+import { returnBk } from "./pages/borrowreturn"
 
 function BorrowsReturns(props){
+    const returnBook = useContext(returnBk)
+
     return(
         <div className="border-1 border-gray-300 bg-white w-full m-auto p-4 rounded-md mt-6">
             <div className="flex justify-between">
@@ -32,10 +36,10 @@ function BorrowsReturns(props){
                             </div>
                         </div>
                     </div>
-                    {props.status === 'active' && (<button className="p-4 bg-black text-white rounded-xl mt-6 mb-2 hover:bg-gray-800 hover:cursor-pointer">Mark as Returned</button>)}
+                    {(props.status === 'active' && !props.returned) && (<button className="p-4 bg-black text-white rounded-xl mt-6 mb-2 hover:bg-gray-800 hover:cursor-pointer" onClick={() => returnBook(true)}>Mark as Returned</button>)}
                 </div>
-                {props.status === 'active' && (<div className="bg-black rounded-2xl py-1 px-4 max-h-8 text-white"><p>Active</p></div>)}
-                {props.status === 'overdue' && (<div className="bg-red-500 rounded-2xl py-1 px-4 max-h-8 text-white"><p>Overdue</p></div>)}
+                {(props.status === 'active' && !props.returned) && (<div className="bg-black rounded-2xl py-1 px-4 max-h-8 text-white"><p>Active</p></div>)}
+                {(props.status === 'overdue' && !props.returned) && (<div className="bg-red-500 rounded-2xl py-1 px-4 max-h-8 text-white"><p>Overdue</p></div>)}
                 {props.returned && (<div className="bg-gray-200 rounded-2xl py-1 px-4 max-h-8"><p>Returned</p></div>)}
             </div>
         </div>

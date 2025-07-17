@@ -4,6 +4,7 @@ import BooksContainer from "../bookscontainer"
 import { useState, useContext } from "react"
 import { totalBooksContext } from "../App"
 import { genresContext } from "../App"
+import Search from "../searchcomponent"
 import axios from "axios"
 
 const axiosInstance = axios.create({
@@ -22,15 +23,13 @@ axiosInstance.interceptors.request.use((config) =>{
 
 function Books(){
     const [isAddBookOpen, setIsAddBookOpen] = useState(false)
-    const [activeModal, setActiveModal] = useState({ type: null, bookId: null })
-    const books = useContext(totalBooksContext)?.data ?? []
     const genres = useContext(genresContext)?.data ?? []
 
     function addBook(){
         setIsAddBookOpen(true)
     }
 
-    const showOverlay = !!activeModal.type || isAddBookOpen
+    const showOverlay = isAddBookOpen
 
     async function submitHandler(e){
         e.preventDefault();
@@ -68,14 +67,13 @@ function Books(){
                 <div
                     className="fixed inset-0 bg-black/80 z-40 transition-opacity duration-300"
                     onClick={() => {
-                        setActiveModal({ type: null, bookId: null })
                         setIsAddBookOpen(false)
                     }}
                 />
             )}
 
             {isAddBookOpen && (
-                <form className="p-4 bg-white absolute top-10 left-1/2 -translate-x-1/2 w-full max-w-lg m-auto z-50 rounded shadow-lg transition-all duration-300" onSubmit={submitHandler}>
+                <form className="p-4 bg-white fixed top-30 left-1/2 -translate-x-1/2 w-full max-w-lg m-auto z-50 rounded shadow-lg transition-all duration-300" onSubmit={submitHandler}>
                     <h1 className="text-center">Add New Book</h1>
                     <p className="text-center">Enter the details for the new book.</p>
                     <FontAwesomeIcon icon={faX} className="absolute right-6 top-6 hover:cursor-pointer hover:bg-black px-2 py-2 rounded-md hover:text-white" onClick={() => setIsAddBookOpen(false)}/>
@@ -122,32 +120,7 @@ function Books(){
                     Add Book
                 </button>
             </div>
-            <div className="relative">
-                <FontAwesomeIcon icon={faSearch} className="absolute left-3 top-7"/>
-                <input type="text" id="searchInput" className="pl-10 py-2 border-1 border-gray-300 my-4 w-full bg-white focus:outline-black focus:outline-2 rounded-md" placeholder="Search books by title, author, or genre..."/>
-            </div>
-            <div className="md:flex md:gap-4 md:flex-wrap">
-                {books.map((book, index) => (
-                    <BooksContainer
-                        key={book.id}
-                        id={book.id}
-                        title={book.title}
-                        author={book.author}
-                        genre={book.genre.name}
-                        genres={genres}
-                        publishedYear={book.published_year}
-                        availableCopies={book.available_copies}
-                        availability={book.available_copies > 0}
-                        isSeen={activeModal.type === "seen" && activeModal.bookId === book.id}
-                        isEditable={activeModal.type === "editable" && activeModal.bookId === book.id}
-                        isRemovable={activeModal.type === "removable" && activeModal.bookId === book.id}
-                        onSee={() => setActiveModal({ type: "seen", bookId: book.id })}
-                        onEdit={() => setActiveModal({ type: "editable", bookId: book.id })}
-                        onRemove={() => setActiveModal({ type: "removable", bookId: book.id })}
-                        onCloseModal={() => setActiveModal({ type: null, bookId: null })}
-                    />
-                ))}
-            </div>
+            <Search searchFor={'books'} placeHolder={'search books by title, author or genre...'} />
         </div>
     )
 }
