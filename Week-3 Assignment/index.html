@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>User-Registration</title>
+</head>
+<body>
+    <header>
+        <h1>Create Your Account</h1>
+        <p>Join us today and get started</p>
+    </header>
+        <form id="user-form">
+            <div class="container">
+                <div class="title">
+                    <h2>Registration Form</h2>
+                    <p>Please fill in all  fields to create your account</p>
+                </div>
+                <div class="personal-info">
+                    <h3>Personal Information</h3>
+                    <div class="flex-containers">
+                        <div class="first-name form-container">
+                            <label for="first-name-input">First Name <sup>*</sup></label><br>
+                            <input type="text" id="first-name-input", placeholder="John", name="first-name">
+                            <small></small>
+                        </div>
+                        <div class="last-name">
+                            <label for="last-name-input">Last Name <sup>*</sup></label><br>
+                            <input type="text" id="last-name-input", placeholder="Doe" name="last-name">
+                            <small></small>
+                        </div>
+                    </div>
+                    <div class="email-address">
+                        <label for="email-address-input">Email Address <sup>*</sup></label><br>
+                        <input type="email", id="email-address-input", placeholder="john.doe@example.com", name="email-address">
+                        <small></small>
+                    </div>
+                    <div class="flex-containers">
+                        <div class="phone-number">
+                            <label for="phone-number-input">Phone Number <sup>*</sup></label><br>
+                            <input type="tel", id="phone-number-input", placeholder="+251 9 12 34 56 78", value="+251", name="phone-number">
+                            <small></small>
+                        </div>
+                        <div class="gender">
+                            <label for="gender-dropdown">Gender</label><br>
+                            <select name="gender" id="gender-dropdown">
+                                <option value="", selected disabled>Select gender</option>
+                                <option value="male">Male</option>
+                                <option value="femail">Female</option>
+                                <option value="other">Other</option>
+                                <option value="prefer_not">Prefer not to say</option>
+                            </select>
+                            <small class="select-error"></small>
+                        </div>
+                    </div>
+                </div>
+                <div class="address-information">
+                    <h3>Address Information</h3>
+                    <div class="street-address">
+                        <label for="street-address-input">Street Address <sup>*</sup></label><br>
+                        <input type="text" name="street-address", id="street-address-input", placeholder="123 Main Street">
+                        <small></small>
+                    </div>
+                    <div class="address-details">
+                        <div class="city">
+                            <label for="city-input">City <sup>*</sup></label><br>
+                            <input type="text", name="city", id="city-input", placeholder="New York">
+                            <small></small>
+                        </div>
+                        <div class="state">
+                            <label for="state-input">State/Province <sup>*</sup></label><br>
+                            <input type="text", name="state/province", id="state-input", placeholder="NY">
+                            <small></small>
+                        </div>
+                        <div class="zip">
+                            <label for="zip-input">ZIP/Postal Code <sup>*</sup></label><br>
+                            <input type="text", name="zip/postal-code", id="zip-input", placeholder="10001">
+                            <small></small>
+                        </div>
+                    </div>
+                    <div class="country">
+                        <label for="country-dropdown">Country <sup>*</sup></label><br>
+                        <select name="country" id="country-dropdown", >
+                            <option value="", selected disabled>Select country</option>
+                            <option value="ethiopia">Ethiopia</option>
+                            <option value="united-states">United States</option>
+                            <option value="canada">Canada</option>
+                            <option value="united-kingdom">United Kingdom</option>
+                            <option value="australia">Australia</option>
+                            <option value="germany">Germany</option>
+                            <option value="france">France</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <small class="select-error"></small>
+                    </div>
+                </div>
+                <div class="account-information">
+                    <h3>Account Information</h3>
+                    <div class="username">
+                        <label for="username-input">Username <sup>*</sup></label><br>
+                        <input type="text", name="username-field", id="username-input", placeholder="johndoe123">
+                        <small></small>
+                    </div>
+                    <div class="password">
+                        <label for="password-input">Password <sup>*</sup></label><br>
+                        <input type="password", name="password", id="password-input", placeholder="Enter your password">
+                        <i class="fa-regular fa-eye" id="show/hide"></i>
+                        <ul id="password-error"></ul>
+                    </div>
+                    <div class="confirm-password">
+                        <label for="confirm-password-input">Confirm Password <sup>*</sup></label><br>
+                        <input type="password", name="confirm-password", id="confirm-password-input", placeholder="Confirm your password">
+                        <i class="fa-regular fa-eye" id="conf-show/hide"></i>
+                        <small></small>
+                    </div>
+                </div>
+                <div class="additional-information">
+                    <h2>Additional Information</h2>
+                    <div class="occupation">
+                        <label for="occupation-input">Occupation</label><br>
+                        <input type="text", name="occupation", id="occupation-input", placeholder="Software Developer">
+                    </div>
+                    <div class="company">
+                        <label for="company-input">Company/Organization</label><br>
+                        <input type="text" name="company/organization" id="company-input" placeholder="Acme Corp">
+                    </div>
+                    <div class="bio">
+                        <label for="bio-input">Bio/About Yourself</label><br>
+                        <textarea name="bio" id="bio-input" placeholder="Tell us about yourself"></textarea>
+                    </div>
+                    <div class="website">
+                        <label for="website-input">Website/Portfolio</label><br>
+                        <input type="text" name="website/portfolio" id="website-input", placeholder="https://www.example.com">
+                    </div>
+                </div>
+                <div class="preferences">
+                    <h3>Preferences</h3>
+                    <div class="prefs">
+                        <input type="checkbox" name="subscribe" id="newsletter-checkbox">
+                        <label for="newsletter-checkbox">Subscribe to our newsletter for updates and promotions</label>
+                    </div>
+                    <div class="prefs">
+                        <input type="checkbox" name="marketing" id="marketing-checkbox">
+                        <label for="marketing-checkbox">Receive marketing communications</label>
+                    </div>
+                    <div class="prefs">
+                        <input type="checkbox" name="terms-conditions" id="terms-conditions-checkbox" required>
+                        <label for="terms-conditions-checkbox">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a> <sup>*</sup></label>
+                    </div>
+                </div>
+                <button type="submit" id="create-account-button">Create Account</button>
+            </div>
+        </form>
+    <script src="./script.js"></script>
+</body>
+</html>

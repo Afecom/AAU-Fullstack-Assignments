@@ -1,0 +1,10 @@
+body{
+    background-color: rgb(250, 250, 250);
+}
+
+.main{
+    width: 80%;
+    margin: auto;
+    /* border: 3px solid aqua; */
+    box-sizing: border-box;
+}
