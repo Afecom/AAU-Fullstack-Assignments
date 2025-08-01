@@ -7,7 +7,7 @@ import MemberContainer from "../membercontainer"
 import Search from "../searchcomponent"
 
 const axiosInstance = axios.create({
-  baseURL: 'http://localhost:3000'
+  baseURL: 'https://library-managment-system-api.onrender.com'
 })
 
 axiosInstance.interceptors.request.use((config) =>{

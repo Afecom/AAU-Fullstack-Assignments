@@ -13,7 +13,7 @@ import Staffs from "./pages/staffs"
 import Profile from './pages/profile'
 
 const axiosInstance = axios.create({
-  baseURL: 'http://localhost:3000'
+  baseURL: 'https://library-managment-system-api.onrender.com'
 })
 
 axiosInstance.interceptors.request.use((config) =>{

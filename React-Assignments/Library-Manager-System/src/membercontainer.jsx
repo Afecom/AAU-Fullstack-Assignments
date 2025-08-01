@@ -7,7 +7,7 @@ import DeleteMember from "./deletemember";
 import axios from "axios";
 
 const axiosInstance = axios.create({
-  baseURL: 'http://localhost:3000'
+  baseURL: 'https://library-managment-system-api.onrender.com'
 })
 
 axiosInstance.interceptors.request.use((config) =>{

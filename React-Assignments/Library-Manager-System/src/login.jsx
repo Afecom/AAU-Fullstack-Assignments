@@ -1,18 +1,15 @@
 import bookImage from './assets/bookimage.png'
 import axios from 'axios';
 import { useState, useEffect} from 'react';
-import { LoginContext } from './logincontext';
-import Dashboard from './pages/dashboard';
 import { useNavigate } from 'react-router-dom'
 
 const axiosInstance = axios.create({
-    baseURL: 'http://localhost:3000'
+    baseURL: 'https://library-managment-system-api.onrender.com'
 })
 
 function Login(){
     const [isLoggedIn, setIsLoggedIn] = useState(false)
     const [isLoading, setIsLoading] = useState(true)
-    const navigate = useNavigate();
 
     useEffect(() => {
         const token = localStorage.getItem('token')
@@ -58,7 +55,7 @@ function Login(){
                     <h1 className='text-center text-3xl lg:text-4xl font-bold my-4 mx-0'>Library Manager System</h1>
                     <p className='text-center text-xl mb-6 text-gray-500'>Sign in to your account to continue</p>
                     <div className='mb-6'>
-                        <label htmlFor="usernameField" className='text-lg font-bold'>Username</label><br />
+                        <label htmlFor="usernameField" className='text-lg font-bold'>User Email</label><br />
                         <input type="text" name="username" id="usernameField" placeholder='Enter your username' className='border-gray-300 border-1 rounded-md py-2 px-2 w-full mt-2 focus:outline-black focus:outline-2' required /><br />
                     </div>
                     <div className='mb-6'>
@@ -66,6 +63,14 @@ function Login(){
                         <input type="password" name="password" id="passwordField" placeholder='Enter your password'className='border-gray-300 border-1 rounded-md py-2 px-2 w-full mt-2 focus:outline-black focus:outline-2' required /><br />
                     </div>
                     <button type="submit" className='bg-black rounded-md text-white text-xl w-full py-2 mb-2 hover:cursor-pointer hover:bg-gray-800'>Sign in</button>
+                    <div className='flex justify-between mt-4'>
+                        <p>Administrator email: admin@gmail.com</p>
+                        <p>Password: admin123</p>
+                    </div>
+                    <div className='flex justify-between mt-4'>
+                        <p>Librarian email: librarian@gmail.com</p>
+                        <p>Password: librarian123</p>
+                    </div>
                 </form>
             </main>
         </div>
