@@ -44,7 +44,7 @@ export default (sequelize, DataTypes) => {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: 'Category',
+                model: 'Categories',
                 key: 'id'
             }
         },
