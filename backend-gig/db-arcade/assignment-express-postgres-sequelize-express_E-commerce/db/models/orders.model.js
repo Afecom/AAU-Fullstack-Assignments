@@ -1,20 +1,20 @@
 import { Model } from 'sequelize'
 
 export default (sequelize, DataTypes) => {
-    class Orders extends Model{
+    class Order extends Model{
         static associate(models){
-            Orders.belongsTo(models.User, {
+            Order.belongsTo(models.User, {
                 foreignKey: 'user_id',
                 as: 'users'
             }),
-            Orders.hasMany(models.Order_item, {
+            Order.hasMany(models.Order_item, {
                 foreignKey: 'order_id',
                 as: 'order_items'
             })
         }
     }
 
-    Orders.init({
+    Order.init({
         id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
@@ -36,5 +36,5 @@ export default (sequelize, DataTypes) => {
         timestamps: true
     })
 
-    return Orders
+    return Order
 }

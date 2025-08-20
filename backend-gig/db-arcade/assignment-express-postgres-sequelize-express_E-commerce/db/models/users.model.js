@@ -1,29 +1,44 @@
-import { DataTypes } from 'sequelize'
-import sequelize from '../sequelize.js'
+import { Model } from "sequelize"
 
-const User = sequelize.define('User', {
-    id: {
-        type: DataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement: true,
-        allowNull: false
-    },
-    first_name: {
-        type: DataTypes.TEXT,
-        allowNull: false
-    },
-    last_name: {
-        type: DataTypes.TEXT,
-        allowNull: false
-    },
-    phone_number: {
-        type: DataTypes.TEXT,
-        allowNull: false
+export default (sequelize, DataTypes) => {
+    class User extends Model {
+        static associate(models){
+            User.hasMany(models.Order, {
+                foreignKey: 'user_id',
+                as: 'orders'
+            }),
+            User.hasMany(models.Cart, {
+                foreignKey: 'user_id',
+                as: 'carts'
+            })
+        }
     }
-}, {
-    timestamps: true,
-    modelName: 'User',
-    tableName: 'Users'
-})
 
-export default User
+    User.init({
+        id: {
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            autoIncrement: true,
+            allowNull: false
+        },
+        first_name: {
+            type: DataTypes.TEXT,
+            allowNull: false
+        },
+        last_name: {
+            type: DataTypes.TEXT,
+            allowNull: false
+        },
+        phone_number: {
+            type: DataTypes.TEXT,
+            allowNull: false
+        }
+    },{
+        sequelize,
+        timestamps: true,
+        modelName: 'User',
+        tableName: 'Users' 
+    })
+
+    return User
+}
