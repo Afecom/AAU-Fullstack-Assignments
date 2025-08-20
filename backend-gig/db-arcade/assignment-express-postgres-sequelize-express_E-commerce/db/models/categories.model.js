@@ -1,7 +1,7 @@
 import { DataTypes } from 'sequelize'
 import sequelize from '../sequelize.js'
 
-const category = sequelize.define('Category', {
+const Category = sequelize.define('Category', {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -18,4 +18,4 @@ const category = sequelize.define('Category', {
     tableName: 'Categories'
 })
 
-export default category
+export default Category
