@@ -1,29 +1,21 @@
 import { DataTypes } from 'sequelize'
 import sequelize from '../sequelize.js'
 
-const user = sequelize.define('User', {
+const category = sequelize.define('Category', {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
         allowNull: false
     },
-    first_name: {
-        type: DataTypes.TEXT,
-        allowNull: false
-    },
-    last_name: {
-        type: DataTypes.TEXT,
-        allowNull: false
-    },
-    phone_number: {
+    name: {
         type: DataTypes.TEXT,
         allowNull: false
     }
 }, {
     timestamps: true,
-    modelName: 'User',
-    tableName: 'Users'
+    modelName: 'Category',
+    tableName: 'Categories'
 })
 
-export default user
+export default category
