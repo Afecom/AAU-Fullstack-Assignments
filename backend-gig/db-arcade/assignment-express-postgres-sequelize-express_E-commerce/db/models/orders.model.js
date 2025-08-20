@@ -7,7 +7,7 @@ export default (sequelize, DataTypes) => {
                 foreignKey: 'user_id',
                 as: 'users'
             }),
-            Orders.hasMany(models.Order_items, {
+            Orders.hasMany(models.Order_item, {
                 foreignKey: 'order_id',
                 as: 'order_items'
             })
@@ -23,7 +23,11 @@ export default (sequelize, DataTypes) => {
         },
         user_id: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            allowNull: false,
+            references: {
+                model: 'User',
+                key: 'id'
+            }
         }
     }, {
         sequelize,

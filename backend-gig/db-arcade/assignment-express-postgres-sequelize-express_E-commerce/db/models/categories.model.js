@@ -1,21 +1,31 @@
-import { DataTypes } from 'sequelize'
-import sequelize from '../sequelize.js'
+import { Model } from "sequelize"
 
-const Category = sequelize.define('Category', {
-    id: {
+export default (sequelize, DataTypes) => {
+    class Category extends Model{
+        static associate(models){
+            Category.hasMany(models.Product, {
+                foreignKey: 'category_id',
+                as: 'products'
+            })
+        }
+    }
+    Category.init({
+        id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
         allowNull: false
     },
-    name: {
-        type: DataTypes.TEXT,
-        allowNull: false
-    }
-}, {
-    timestamps: true,
-    modelName: 'Category',
-    tableName: 'Categories'
-})
+        name: {
+            type: DataTypes.TEXT,
+            allowNull: false
+        }
+    }, {
+        sequelize,
+        modelName: 'Category',
+        tableName: 'Categories',
+        timestamps: true
+    })
 
-export default Category
+    return Category
+}
