@@ -32,5 +32,33 @@ export async function listProducts(req, res){
         })
     }
 }
-export async function updateProducts(req, res){}
+export async function updateProducts(req, res){
+    const id = req.params.id
+    const body = req.body
+    const { name, description, price, category_id, quantity } = body
+
+    try {
+        const product = await Product.findByPk(id)
+        if (product){
+            product.name = name
+            product.description = description
+            product.price = price
+            product.category_id = category_id
+            product.quantity = quantity
+            product.save()
+            res.status(200).json({
+                message: "Product updated successfully",
+                new_Product: product
+            })
+        }
+        else {
+            res.status(404).json("Couldn't find the product to be updated")
+        }
+    } catch (error) {
+         res.status(400).json({
+            message: "Couldn't update a product",
+            error: error.message || error
+        })
+    }
+}
 export async function deleteProduct(req, res){}
