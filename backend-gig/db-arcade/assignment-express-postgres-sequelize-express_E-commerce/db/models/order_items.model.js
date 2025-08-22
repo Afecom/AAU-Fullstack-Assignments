@@ -29,11 +29,11 @@ export default (sequelize, DataTypes) => {
                 key: 'id'
             }
         },
-        user_id: {
+        order_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: 'User',
+                model: 'Orders',
                 key: 'id'
             }
         },

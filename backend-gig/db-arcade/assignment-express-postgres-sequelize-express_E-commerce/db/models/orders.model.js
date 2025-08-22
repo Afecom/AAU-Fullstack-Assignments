@@ -5,11 +5,11 @@ export default (sequelize, DataTypes) => {
         static associate(models){
             Order.belongsTo(models.User, {
                 foreignKey: 'user_id',
-                as: 'users'
+                as: 'user'
             }),
             Order.hasMany(models.OrderItems, {
                 foreignKey: 'order_id',
-                as: 'order_items'
+                as: 'orderItems'
             })
         }
     }
