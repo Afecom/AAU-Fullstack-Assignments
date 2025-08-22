@@ -3,7 +3,7 @@ import { Model } from "sequelize";
 export default (sequelize, DataTypes) => {
     class Product_image extends Model {
         static associate(models) {
-            Product_image.belongsTo(models.Product, {
+            Product_image.belongsTo(models.Products, {
                 foreignKey: 'product_id',
                 as: 'products'
             })
@@ -20,7 +20,7 @@ export default (sequelize, DataTypes) => {
             type: DataTypes.TEXT,
             allowNull: false
         },
-        Product_id: {
+        product_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {

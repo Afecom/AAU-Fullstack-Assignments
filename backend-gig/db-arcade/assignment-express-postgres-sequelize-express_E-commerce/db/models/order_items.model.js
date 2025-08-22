@@ -1,24 +1,25 @@
 import { Model } from "sequelize";
 
 export default (sequelize, DataTypes) => {
-    class Cart extends Model {
-        static associate(models){
-            Cart.belongsTo(models.Products, {
+    class orderItem extends Model {
+        static associate(models) {
+            orderItem.belongsTo(models.Orders, {
+                foreignKey: 'order_id',
+                as: 'orders'
+            }),
+            orderItem.belongsTo(models.Products, {
                 foreignKey: 'product_id',
                 as: 'products'
-            }),
-            Cart.belongsTo(models.User, {
-                foreignKey: 'user_id',
-                as: 'users'
             })
         }
     }
 
-    Cart.init({
+    orderItem.init({
         id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
-            autoIncrement: true
+            autoIncrement: true,
+            allowNull: false
         },
         product_id: {
             type: DataTypes.INTEGER,
@@ -32,19 +33,20 @@ export default (sequelize, DataTypes) => {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: 'Users',
+                model: 'User',
                 key: 'id'
             }
         },
         quantity: {
             type: DataTypes.INTEGER,
+            allowNull: false
         }
     }, {
         sequelize,
         timestamps: true,
-        modelName: 'Cart',
-        tableName: 'Carts'
+        modelName: 'orderItems',
+        tableName: 'orderItems'
     })
 
-    return Cart
+    return orderItem
 }

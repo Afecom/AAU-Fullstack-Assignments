@@ -7,11 +7,11 @@ export default (sequelize, DataTypes) => {
                 foreignKey: 'category_id',
                 as: 'categories'
             }),
-            Product.hasMany(models.Product_image, {
+            Product.hasMany(models.ProductImages, {
                 foreignKey: 'product_id',
                 as: 'images'
             }),
-            Product.hasMany(models.Order_item, {
+            Product.hasMany(models.OrderItems, {
                 foreignKey: 'product_id',
                 as: 'order_items'
             }),
@@ -34,10 +34,9 @@ export default (sequelize, DataTypes) => {
         },
         description: {
             type: DataTypes.TEXT,
-            allowNull: false
         },
         price: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.DECIMAL(10, 2),
             allowNull: false
         },
         category_id: {

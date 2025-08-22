@@ -1,5 +1,6 @@
 import express from 'express'
 import sequelize from './db/sequelize.js'
+import indexRouter from './routes/index.route.js'
 
 const app = express()
 app.use(express.json())
@@ -15,6 +16,9 @@ const initializeDatabase = async () => {
     }
 }
 initializeDatabase()
+
+app.get('/', (req, res) => {res.send("Hello World!")})
+app.use('/api/v1', indexRouter)
 
 app.listen(3000, () => {
     console.log("The server is up and reunning on port 3000")

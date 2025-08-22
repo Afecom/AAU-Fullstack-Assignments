@@ -3,7 +3,7 @@ import { Model } from "sequelize"
 export default (sequelize, DataTypes) => {
     class User extends Model {
         static associate(models){
-            User.hasMany(models.Order, {
+            User.hasMany(models.Orders, {
                 foreignKey: 'user_id',
                 as: 'orders'
             }),
@@ -31,7 +31,8 @@ export default (sequelize, DataTypes) => {
         },
         phone_number: {
             type: DataTypes.TEXT,
-            allowNull: false
+            allowNull: false,
+            unique: true
         }
     },{
         sequelize,
