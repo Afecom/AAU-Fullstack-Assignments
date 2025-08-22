@@ -5,19 +5,19 @@ export default (sequelize, DataTypes) => {
         static associate(models) {
             Product.belongsTo(models.Category, {
                 foreignKey: 'category_id',
-                as: 'categories'
+                as: 'category'
             }),
             Product.hasMany(models.ProductImages, {
                 foreignKey: 'product_id',
-                as: 'images'
+                as: 'image'
             }),
             Product.hasMany(models.OrderItems, {
                 foreignKey: 'product_id',
-                as: 'order_items'
+                as: 'order_item'
             }),
             Product.hasMany(models.Cart, {
                 foreignKey: 'product_id',
-                as: 'cart_items'
+                as: 'cart_item'
             })
         }
     }

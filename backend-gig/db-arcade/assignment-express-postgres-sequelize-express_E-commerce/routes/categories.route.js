@@ -6,6 +6,6 @@ const categoryRouter = Router()
 categoryRouter.post('/', publishCategory)
 categoryRouter.get('/', listCategories)
 categoryRouter.put('/:id', updateCategory)
-categoryRouter.delete('/id', deleteCategory)
+categoryRouter.delete('/:id', deleteCategory)
 
 export default categoryRouter
